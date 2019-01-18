@@ -44,12 +44,22 @@ const trainingData = [
 	"5+5=10"
 	];
 
-const inputMap = ["0", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-// input.Map.length === inputSize
+// const inputMap = ["0", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// inputMap.length === inputSize
+// 0+0=0 is defined as:
+// [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+// [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+const net = new brain.recurrent.LSTM({ hiddenLayers: [20] })
 
+net.train(trainingData, { errorThresh: 0.025, log: (stats) => console.log(stats) });
 
-
+console.log(net.run("0+1="));
+console.log(net.run("4+1="));
+console.log(net.run("2+1+1="));
 
 
 
