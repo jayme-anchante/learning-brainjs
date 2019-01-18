@@ -62,7 +62,10 @@ net.train(trainingData, {
 	log: (stats) => console.log(stats)
 });
 
+// forecasts 1 step ahead
 // console.log(scaleUp(net.run(trainingData[0])));
+
+// forecast 3 steps ahead
 console.log(net.forecast([
 	trainingData[0][0],
 	trainingData[0][1]
