@@ -5,7 +5,7 @@ function toNumber(character) {
 }
 
 function toArray(string) {
-	if (string.length !== 7 * 7) throw new Error("string in wong size");
+	if (string.length !== 7 * 7) throw new Error("string in wrong size");
 	return 	string.split("").map(toNumber);
 }
 
